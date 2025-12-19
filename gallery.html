@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерия - Рибарник Комитовица Гьол</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🎣 Комитовица Гьол</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="gallery.html" class="active">Галерия</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+                <li><a href="location.html">Местоположение</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h2>Галерия със снимки</h2>
+            <p>Разгледайте моментите от нашия рибарник</p>
+        </section>
+
+        <section class="upload-section">
+            <div class="upload-container">
+                <h3>Качи нови снимки</h3>
+                <input type="file" id="fileInput" multiple accept="image/*">
+                <button id="uploadBtn" class="btn">Качи снимки</button>
+                <p class="upload-note">Изберете една или повече снимки за качване</p>
+            </div>
+        </section>
+
+        <section class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Снимките ще се показват тук -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Рибарник Комитовица Гьол. Всички права запазени.</p>
+    </footer>
+
+    <!-- Modal за показване на снимка в пълен размер -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

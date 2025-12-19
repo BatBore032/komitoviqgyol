@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - Рибарник Комитовия Гьол</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🎣 Комитовия Гьол</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="contacts.html" class="active">Контакти</a></li>
+                <li><a href="location.html">Местоположение</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h2>Свържете се с нас</h2>
+            <p>Ще се радваме да отговорим на Вашите въпроси</p>
+        </section>
+
+        <section class="contacts-content">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Телефон</h3>
+                    <p><a href="tel:0878 72 97 09">0878 72 97 09</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p><a href="">komitoviqgyol@gmail.com</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🕐</div>
+                    <h3>Работно време</h3>
+                    <p>Всеки ден: 07:00 - 18:30
+                                  19:00 - 06:30
+
+                    </p>
+                    <p>Почивен ден: Няма</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Адрес</h3>
+                    <p>с. Стрелци</p>
+                    <p>Област Пловдив</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h3>Изпратете ни съобщение</h3>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Име *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Съобщение *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Изпрати</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Рибарник Комитовия Гьол. Всички права запазени.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
