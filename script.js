@@ -7,6 +7,29 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('galleryGrid')) {
         loadGallery();
         setupUploadHandler();
+        setupAdminLogin();
+    }
+    // Функция за админ достъп до качване
+    function setupAdminLogin() {
+        const uploadContainer = document.getElementById('uploadContainer');
+        const adminLogin = document.getElementById('adminLogin');
+        const loginBtn = document.getElementById('loginBtn');
+        const adminPassword = document.getElementById('adminPassword');
+        const loginMsg = document.getElementById('loginMsg');
+
+        // Скриваме формата за качване по подразбиране
+        uploadContainer.style.display = 'none';
+        adminLogin.style.display = 'block';
+
+        loginBtn.addEventListener('click', function() {
+            if (adminPassword.value === 'ribarski2025') {
+                uploadContainer.style.display = 'block';
+                adminLogin.style.display = 'none';
+            } else {
+                loginMsg.textContent = 'ribarski2025';
+                adminPassword.value = '';
+            }
+        });
     }
     
     // Проверка дали сме на страницата с контакти
@@ -97,91 +120,5 @@ function loadGallery() {
 // Функция за изтриване на снимка
 function deletePhoto(photoId) {
     if (confirm('Сигурни ли сте, че искате да изтриете тази снимка?')) {
+
         photos = photos.filter(photo => photo.id !== photoId);
-        localStorage.setItem('fisheryPhotos', JSON.stringify(photos));
-        loadGallery();
-    }
-}
-
-// Функция за показване на снимка в modal
-function setupImageModal() {
-    const modal = document.getElementById('imageModal');
-    if (!modal) return;
-    
-    const closeBtn = modal.querySelector('.close');
-    
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    };
-    
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    };
-}
-
-function showImageModal(src, name) {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const caption = document.getElementById('caption');
-    
-    if (modal && modalImg) {
-        modal.style.display = 'block';
-        modalImg.src = src;
-        if (caption) caption.innerHTML = name;
-    }
-}
-
-// Функция за контактна форма
-function setupContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
-        
-        // Симулация на изпращане на формата
-        alert(`Благодарим Ви, ${name}!\n\nВашето съобщение е получено. Ще се свържем с Вас скоро на ${email}.`);
-        
-        // Изчистване на формата
-        contactForm.reset();
-        
-        // В реална среда тук би се изпращала информацията към сървър
-        console.log({name, email, phone, message});
-    });
-}
-
-// Добавяне на демо снимки при първо зареждане (по желание)
-if (photos.length === 0 && document.getElementById('galleryGrid')) {
-    // Можете да добавите примерни placeholder снимки тук
-    const demoPhotos = [
-        {
-            id: 1,
-            src: 'https://via.placeholder.com/400x300/4a9fd8/ffffff?text=Рибарник+1',
-            name: 'Изглед на рибарника',
-            date: new Date().toLocaleDateString('bg-BG')
-        },
-        {
-            id: 2,
-            src: 'https://via.placeholder.com/400x300/2c5f8d/ffffff?text=Рибарник+2',
-            name: 'Залез край водата',
-            date: new Date().toLocaleDateString('bg-BG')
-        },
-        {
-            id: 3,
-            src: 'https://via.placeholder.com/400x300/f39c12/ffffff?text=Рибарник+3',
-            name: 'Къмпинг зона',
-            date: new Date().toLocaleDateString('bg-BG')
-        }
-    ];
-    
-    // Можете да разкоментирате следващите редове, за да добавите демо снимки
-    // photos = demoPhotos;
-    // localStorage.setItem('fisheryPhotos', JSON.stringify(photos));
-    // loadGallery();
-}

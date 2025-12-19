@@ -1,3 +1,56 @@
+/* Mobile improvements */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem 2%;
+    }
+    .logo h1 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0.2rem;
+        width: 100%;
+        align-items: center;
+    }
+    .nav-links a {
+        padding: 0.5rem 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    .hero {
+        padding: 2rem 2%;
+    }
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 2rem 2%;
+    }
+    .feature-card {
+        padding: 1rem;
+    }
+    .about {
+        padding: 2rem 2%;
+        margin: 1rem auto;
+    }
+    .about h2 {
+        font-size: 1.2rem;
+    }
+    .about p {
+        font-size: 1rem;
+    }
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
 * {
     margin: 0;
     padding: 0;
