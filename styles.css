@@ -53,6 +53,19 @@
     .feature-card {
         padding: 1rem;
     }
+    .fishing-conditions {
+        padding: 2rem 2%;
+    }
+    .fishing-conditions h2 {
+        font-size: 1.4rem;
+    }
+    .conditions-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .condition-card {
+        padding: 1.5rem;
+    }
     .about {
         padding: 2rem 2%;
         margin: 1rem auto;
@@ -89,8 +102,20 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg);
+    position: relative;
+    min-height: 100vh;
 }
 
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+    pointer-events: none;
+}
 /* Header & Navigation */
 header {
     background-color: var(--primary-color);
@@ -141,8 +166,8 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
+    background: transparent;
+    color: var(--text-color);
     padding: 5rem 5%;
     text-align: center;
 }
@@ -236,6 +261,68 @@ main {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+}
+
+/* Fishing Conditions Section */
+.fishing-conditions {
+    padding: 4rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fishing-conditions h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.condition-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 350px;
+}
+
+.condition-card:hover {
+    transform: translateY(-5px);
+}
+
+.fish-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.condition-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.condition-details {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+.condition-details li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+.condition-details li:last-child {
+    border-bottom: none;
 }
 
 /* Page Header */
