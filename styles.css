@@ -271,6 +271,86 @@ main {
     text-align: center;
 }
 
+/* Fishing Regulations Section */
+.fishing-regulations {
+    padding: 2.5rem 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fishing-regulations h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.regulations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+}
+
+.reg-card {
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 2.1rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    aspect-ratio: 1 / 1;
+    justify-content: center;
+}
+
+.reg-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.reg-icon {
+    font-size: 2.6rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.reg-text h3 {
+    color: var(--primary-color);
+    font-size: 1.35rem;
+    margin: 0 0 0.4rem 0;
+    text-align: center;
+}
+
+.reg-text p {
+    font-size: 1.1rem;
+    color: #444;
+    margin: 0.25rem 0;
+    line-height: 1.55;
+    display: block;
+    text-align: center;
+}
+
+.reg-note {
+    font-size: 1.02rem !important;
+    color: #888 !important;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .regulations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .regulations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .fishing-conditions h2 {
     color: var(--primary-color);
     margin-bottom: 2rem;
