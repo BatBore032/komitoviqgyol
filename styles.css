@@ -632,27 +632,38 @@ footer {
         background-color: var(--primary-color);
         padding: 0.5rem 0;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 200;
+        list-style: none;
     }
 
     .nav-links.open {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-links li {
         width: 100%;
+        list-style: none;
     }
 
     .nav-links a {
         display: block;
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 1.5rem;
         width: 100%;
         text-align: center;
         border-radius: 0;
+        color: var(--white);
+        font-size: 1.1rem;
     }
 
     nav {
         position: relative;
         flex-wrap: wrap;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 200;
     }
 
     .page-header h2 {
