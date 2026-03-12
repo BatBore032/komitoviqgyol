@@ -137,5 +137,17 @@ function loadGallery() {
 // Функция за изтриване на снимка
 function deletePhoto(photoId) {
     if (confirm('Сигурни ли сте, че искате да изтриете тази снимка?')) {
-
         photos = photos.filter(photo => photo.id !== photoId);
+        localStorage.setItem('fisheryPhotos', JSON.stringify(photos));
+        loadGallery();
+    }
+}
+
+// Функция за показване на снимка в модал
+function setupImageModal() {
+    // Modal functionality removed
+}
+
+function showImageModal(src, alt) {
+    // Modal functionality removed
+}
