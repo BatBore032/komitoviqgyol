@@ -3,6 +3,23 @@ let photos = JSON.parse(localStorage.getItem('fisheryPhotos')) || [];
 
 // Зареждане на галерията при стартиране
 document.addEventListener('DOMContentLoaded', function() {
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+    }
+
     // Проверка дали сме на страницата с галерията
     if (document.getElementById('galleryGrid')) {
         loadGallery();
