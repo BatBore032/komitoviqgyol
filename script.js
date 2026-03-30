@@ -1,7 +1,7 @@
 // Локално съхранение на снимки
 let photos = JSON.parse(localStorage.getItem('fisheryPhotos')) || [];
 
-// Зареждане на галерията при стартиране
+// Зареждане при стартиране
 document.addEventListener('DOMContentLoaded', function() {
     // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
@@ -20,12 +20,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Header scroll effect
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }, { passive: true });
+    }
+
+    // Scroll animations (Intersection Observer)
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    if (animatedElements.length > 0) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        animatedElements.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+
+    // Stagger animation for cards inside animated sections
+    const staggerContainers = document.querySelectorAll('.animate-on-scroll.visible .reg-card, .animate-on-scroll.visible .feature-card, .animate-on-scroll.visible .contact-card');
+    // Re-observe after visibility for stagger effect
+    const staggerObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                const cards = entry.target.querySelectorAll('.reg-card, .feature-card, .contact-card');
+                cards.forEach(function(card, index) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(function() {
+                        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+                staggerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(function(el) {
+        staggerObserver.observe(el);
+    });
+
     // Проверка дали сме на страницата с галерията
     if (document.getElementById('galleryGrid')) {
         loadGallery();
         setupUploadHandler();
         setupAdminLogin();
     }
+
     // Функция за админ достъп до качване
     function setupAdminLogin() {
         const uploadContainer = document.getElementById('uploadContainer');
@@ -34,7 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const adminPassword = document.getElementById('adminPassword');
         const loginMsg = document.getElementById('loginMsg');
 
-        // Скриваме формата за качване по подразбиране
+        if (!uploadContainer || !adminLogin || !loginBtn) return;
+
         uploadContainer.style.display = 'none';
         adminLogin.style.display = 'block';
 
