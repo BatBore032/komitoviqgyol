@@ -213,7 +213,7 @@ main {
 .hero-banner .hero-bg {
     position: absolute;
     inset: 0;
-    background: url('images/lake-bg.jpg') center/cover no-repeat;
+    background: url('images/lake-bg-v2.jpg') center/cover no-repeat;
     filter: brightness(0.4);
     transform: scale(1.05);
     transition: transform 8s ease;
