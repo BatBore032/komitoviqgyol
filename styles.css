@@ -1078,6 +1078,10 @@ footer p {
         padding: 2rem 4%;
     }
 
+    .fishing-regulations {
+        padding: 2.5rem 4%;
+    }
+
     .about {
         margin: 1rem 4%;
         padding: 2rem 1.2rem;
@@ -1115,18 +1119,6 @@ footer p {
         font-size: 0.95rem;
     }
 
-    .hero {
-        padding: 2rem 3%;
-    }
-
-    .hero-content h2 {
-        font-size: 1.3rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
     .features {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1135,6 +1127,10 @@ footer p {
 
     .feature-card {
         padding: 1.2rem;
+    }
+
+    .fishing-regulations {
+        padding: 2rem 3%;
     }
 
     .fishing-conditions {
