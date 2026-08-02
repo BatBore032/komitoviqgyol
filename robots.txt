@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://komitoviqgyol.vercel.app/sitemap.xml

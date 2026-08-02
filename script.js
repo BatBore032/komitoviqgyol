@@ -4,14 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
+            const isOpen = hamburger.classList.toggle('active');
             navLinks.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
         });
         // Close menu when a link is clicked
         navLinks.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
     }
