@@ -13,7 +13,7 @@
     --accent: #e67e22;
     --accent-hover: #d35400;
     --text: #2c3e50;
-    --text-light: #5d6d7e;
+    --text-light: #46525c;
     --bg: #f0f4f8;
     --white: #ffffff;
     --card-bg: rgba(255, 255, 255, 0.95);
@@ -27,6 +27,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 106.25%;
 }
 
 body {
@@ -419,7 +420,7 @@ main {
 
 .reg-note {
     font-size: 0.92rem !important;
-    color: #95a5a6 !important;
+    color: #7a8a8c !important;
     font-style: italic;
 }
 
@@ -805,7 +806,7 @@ footer::before {
 }
 
 .footer-brand p {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.78);
     font-size: 0.92rem;
     line-height: 1.7;
     max-width: 320px;
@@ -830,7 +831,7 @@ footer::before {
 .footer-links a,
 .footer-contact a,
 .footer-contact li {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.78);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color var(--transition);
