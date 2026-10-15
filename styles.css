@@ -404,6 +404,10 @@ main {
     transform: scale(1.08);
 }
 
+.reg-card-wide {
+    grid-column: 1 / -1;
+}
+
 .reg-text h3 {
     color: var(--primary);
     font-size: 1.2rem;
