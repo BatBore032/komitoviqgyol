@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <meta name="description" content="Спортен Риболов Комитовия Гьол в с. Стрелци, област Пловдив — риболов на шаран и пъстърва, дневен и нощен режим, отлични условия сред природата.">
     <title>Спортен Риболов Комитовия Гьол — Риболов и Отдих</title>
+    <meta name="theme-color" content="#0a2540">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="bg_BG">
+    <meta property="og:site_name" content="Спортен Риболов Комитовия Гьол">
+    <meta property="og:url" content="https://komitoviqgyol.vercel.app/">
     <meta property="og:title" content="Спортен Риболов Комитовия Гьол — Риболов и Отдих">
     <meta property="og:description" content="Риболов на шаран и пъстърва, дневен и нощен режим, отлични условия сред природата в с. Стрелци, област Пловдив.">
-    <meta property="og:image" content="images/lake-bg-v2.jpg">
+    <meta property="og:image" content="https://komitoviqgyol.vercel.app/images/lake-bg-v2.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://komitoviqgyol.vercel.app/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A3%3C/text%3E%3C/svg%3E">
+    <link rel="preload" as="image" href="images/lake-bg-v2.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap">
     <link rel="stylesheet" href="styles.css">
     <script type="application/ld+json">
     {
@@ -22,7 +31,7 @@
         "url": "https://komitoviqgyol.vercel.app/",
         "telephone": "+359878729709",
         "email": "komitoviqgyol@gmail.com",
-        "priceRange": "20–25 €",
+        "priceRange": "25 €",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "с. Стрелци",
@@ -48,148 +57,315 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>🎣 Комитовия Гьол</h1>
-            </div>
-            <button class="hamburger" aria-label="Меню" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="i-fish" viewBox="0 0 24 24"><path d="M22 12c-2.2 3.6-5.4 5.5-9 5.5-2.6 0-4.8-1-6.6-2.8L3 17.5v-11l3.4 2.8C8.2 7.5 10.4 6.5 13 6.5c3.6 0 6.8 1.9 9 5.5Z"/><path d="M17.5 11h.01"/><path d="M11 9.5c.7 1.6.7 3.4 0 5"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+        <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+        <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+        <symbol id="i-nav" viewBox="0 0 24 24"><path d="m3 11 19-9-9 19-2-8-8-2z"/></symbol>
+        <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+        <symbol id="i-euro" viewBox="0 0 24 24"><path d="M4 10h12M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Към съдържанието</a>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Основна навигация">
+            <a class="logo" href="index.html" aria-label="Комитовия Гьол — начало">
+                <span class="logo-mark"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>
+                <span class="logo-text">
+                    <span class="logo-name">Комитовия Гьол</span>
+                    <span class="logo-tag">Спортен риболов</span>
+                </span>
+            </a>
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="index.html" class="active" aria-current="page">Начало</a></li>
+                <li><a href="#reglament">Цени</a></li>
                 <li><a href="contacts.html">Контакти</a></li>
                 <li><a href="location.html">Местоположение</a></li>
             </ul>
+            <div class="nav-actions">
+                <a class="btn btn-primary nav-cta" href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>0878 72 97 09</a>
+                <a class="nav-call" href="tel:+359878729709" aria-label="Обадете се на 0878 72 97 09"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></a>
+                <button class="hamburger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section class="hero-banner">
-            <div class="hero-bg"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="hero-badge">📍 с. Стрелци, Област Пловдив</div>
-                <h2>Спортен Риболов Комитовия Гьол</h2>
-                <p>Вашето любимо място за риболов и отдих сред природата</p>
-                <div class="hero-buttons">
-                    <a href="contacts.html" class="btn">Свържете се с нас</a>
-                    <a href="location.html" class="btn btn-outline">📍 Как да ни намерите</a>
+    <main id="main">
+        <section class="hero">
+            <div class="hero-media">
+                <img src="images/lake-bg-v2.jpg" alt="" width="960" height="960" fetchpriority="high">
+            </div>
+            <div class="bubbles" aria-hidden="true">
+                <span style="--x:58%; --s:12px; --t:13s; --delay:0s"></span>
+                <span style="--x:66%; --s:20px; --t:16s; --delay:-4s"></span>
+                <span style="--x:74%; --s:10px; --t:11s; --delay:-7s"></span>
+                <span style="--x:82%; --s:16px; --t:15s; --delay:-2s"></span>
+                <span style="--x:90%; --s:9px; --t:12s; --delay:-9s"></span>
+                <span style="--x:12%; --s:11px; --t:14s; --delay:-5s"></span>
+                <span style="--x:35%; --s:8px; --t:12s; --delay:-10s"></span>
+            </div>
+
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <p class="live-badge" data-live-status>
+                        <span class="live-dot" aria-hidden="true"></span>
+                        <span data-live-text>Отворено всеки ден · дневен и нощен риболов</span>
+                    </p>
+                    <h1 class="hero-title">
+                        <span class="hero-eyebrow">Спортен риболов</span>
+                        Комитовия <span class="hl">Гьол<svg class="swoosh" viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 17C52 7 128 4 196 12"/></svg></span>
+                    </h1>
+                    <p class="hero-lead">Вашето любимо място за риболов и отдих сред природата — шаран и пъстърва, дневен и нощен режим, всеки ден от седмицата.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary btn-lg" href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Обадете се</a>
+                        <a class="btn btn-glass btn-lg" href="#reglament">Цени и регламент<svg class="ico" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+                    </div>
+                    <ul class="hero-facts">
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>с. Стрелци, обл. Пловдив</li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Понеделник – Неделя</li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg>Нощен риболов</li>
+                    </ul>
+                </div>
+
+                <div class="hero-cards">
+                    <span class="hero-sticker" aria-hidden="true">Работим<br>всеки ден!</span>
+                    <a class="price-tag price-tag--carp" href="#reglament">
+                        <span class="pt-icon"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>
+                        <span>
+                            <span class="pt-label">Дневен / Нощен</span>
+                            <span class="pt-name">Шаран</span>
+                        </span>
+                        <span class="pt-price">25 €</span>
+                    </a>
+                    <a class="price-tag price-tag--trout" href="#reglament">
+                        <span class="pt-icon"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>
+                        <span>
+                            <span class="pt-label">До 15 броя</span>
+                            <span class="pt-name">Пъстърва</span>
+                        </span>
+                        <span class="pt-price">25 €</span>
+                    </a>
+                </div>
+            </div>
+
+            <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 64C180 110 360 120 540 90S900 10 1080 20s270 50 360 60v40H0Z"/></svg>
+        </section>
+
+        <section class="section section--cream pricing" id="reglament">
+            <div class="ribbons" aria-hidden="true">
+                <div class="ribbon ribbon--back">
+                    <div class="ribbon-track">
+                        <span>Комитовия Гьол</span><span>Спортен риболов</span><span>Комитовия Гьол</span><span>Спортен риболов</span><span>Комитовия Гьол</span><span>Спортен риболов</span><span>Комитовия Гьол</span><span>Спортен риболов</span>
+                        <span>Комитовия Гьол</span><span>Спортен риболов</span><span>Комитовия Гьол</span><span>Спортен риболов</span><span>Комитовия Гьол</span><span>Спортен риболов</span><span>Комитовия Гьол</span><span>Спортен риболов</span>
+                    </div>
+                </div>
+                <div class="ribbon ribbon--front">
+                    <div class="ribbon-track">
+                        <span>Шаран</span><span>Пъстърва</span><span>Дневен риболов</span><span>Нощен риболов</span><span>Понеделник – Неделя</span><span>Сред природата</span><span>Шаран</span><span>Пъстърва</span><span>Дневен риболов</span><span>Нощен риболов</span><span>Понеделник – Неделя</span><span>Сред природата</span>
+                        <span>Шаран</span><span>Пъстърва</span><span>Дневен риболов</span><span>Нощен риболов</span><span>Понеделник – Неделя</span><span>Сред природата</span><span>Шаран</span><span>Пъстърва</span><span>Дневен риболов</span><span>Нощен риболов</span><span>Понеделник – Неделя</span><span>Сред природата</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-euro"/></svg>Цени и регламент</span>
+                    <h2 class="section-title">Изберете своя <span class="mark">риболов</span></h2>
+                    <p class="section-lead">Запознайте се с правилата преди вашето посещение.</p>
+                </div>
+
+                <div class="tickets">
+                    <article class="ticket ticket--carp reveal from-left">
+                        <div class="ticket-head">
+                            <span class="ticket-badge"><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg>Дневен / Нощен</span>
+                            <h3 class="ticket-title">Риболов на шаран</h3>
+                            <p class="ticket-price"><small>Такса</small>25 €</p>
+                            <span class="ticket-icon" aria-hidden="true"><svg class="ico"><use href="#i-fish"/></svg></span>
+                        </div>
+                        <div class="ticket-body">
+                            <ul class="check-list">
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>До <strong>2 въдици</strong> на рибар</span></li>
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>Всяка следваща въдица се заплаща по <strong>5 €</strong></span></li>
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>Допустим улов: до <strong>7 броя шаран</strong> на рибар</span></li>
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>Риба под <strong>1 кг</strong> и над <strong>5 кг</strong> се връща във водата</span></li>
+                            </ul>
+                            <div class="ticket-foot">
+                                <span>Имате въпроси?</span>
+                                <a class="link-arrow" href="tel:+359878729709">0878 72 97 09<svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ticket ticket--trout reveal from-right">
+                        <div class="ticket-head">
+                            <span class="ticket-badge"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg>Пъстърва</span>
+                            <h3 class="ticket-title">Риболов на пъстърва</h3>
+                            <p class="ticket-price"><small>Такса</small>25 €</p>
+                            <span class="ticket-icon" aria-hidden="true"><svg class="ico"><use href="#i-fish"/></svg></span>
+                        </div>
+                        <div class="ticket-body">
+                            <ul class="check-list">
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>До <strong>2 въдици</strong> на рибар</span></li>
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>Всяка следваща въдица се заплаща по <strong>5 €</strong></span></li>
+                                <li><span class="tick"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span>Допустим улов: до <strong>15 пъстърви</strong> на рибар</span></li>
+                            </ul>
+                            <div class="ticket-foot">
+                                <span>Имате въпроси?</span>
+                                <a class="link-arrow" href="tel:+359878729709">0878 72 97 09<svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="rules">
+                    <div class="rule rule--sun reveal" style="--d:0.05s">
+                        <span class="rule-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+                        <div>
+                            <h3>Заплаща се предварително</h3>
+                            <p>Таксата за риболов се заплаща преди началото на риболова.</p>
+                        </div>
+                    </div>
+                    <div class="rule rule--leaf reveal" style="--d:0.15s">
+                        <span class="rule-icon"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+                        <div>
+                            <h3>Пазете чистота!</h3>
+                            <p>Нека заедно запазим природата около гьола красива.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="fishing-regulations animate-on-scroll">
-            <h2>📋 Регламент за риболов</h2>
-            <p class="section-subtitle">Запознайте се с правилата преди вашето посещение</p>
-            <div class="regulations-grid">
-                <div class="reg-card">
-                    <span class="reg-icon">🕐</span>
-                    <div class="reg-text">
-                        <h3>Работно време</h3>
-                        <p>Понеделник – Неделя</p>
-                        <p>Дневен: <strong>07:00 – 18:30 ч.</strong></p>
-                        <p>Нощен: <strong>19:00 – 06:30 ч.</strong></p>
-                    </div>
+        <section class="section daynight" id="rabotno-vreme">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Работно време</span>
+                    <h2 class="section-title">Риболов <span class="mark">ден и нощ</span></h2>
+                    <p class="section-lead">Работим всеки ден — изберете дневен или нощен режим.</p>
                 </div>
-                <div class="reg-card">
-                    <span class="reg-icon">💶</span>
-                    <div class="reg-text">
-                        <h3>Такса за риболов</h3>
-                        <p>Дневен / Нощен: <strong>20 €</strong></p>
-                        <p class="reg-note">Заплаща се предварително.</p>
-                    </div>
-                </div>
-                <div class="reg-card">
-                    <span class="reg-icon">🎣</span>
-                    <div class="reg-text">
-                        <h3>Брой въдици</h3>
-                        <p>До <strong>2 въдици</strong> на рибар.</p>
-                        <p class="reg-note">Всяка следваща въдица се заплаща по <strong>5 €</strong>.</p>
-                    </div>
-                </div>
-                <div class="reg-card">
-                    <span class="reg-icon">🐟</span>
-                    <div class="reg-text">
-                        <h3>Допустим улов</h3>
-                        <p>До <strong>7 броя шаран</strong> на рибар.</p>
-                    </div>
-                </div>
-                <div class="reg-card">
-                    <span class="reg-icon">📏</span>
-                    <div class="reg-text">
-                        <h3>Размер на рибата</h3>
-                        <p>Под <strong>1 кг</strong> и над <strong>5 кг</strong> — връща се във водата.</p>
-                    </div>
-                </div>
-                <div class="reg-card">
-                    <span class="reg-icon">📌</span>
-                    <div class="reg-text">
-                        <h3>Общи правила</h3>
-                        <p>ПАЗЕТЕ ЧИСТОТА!</p>
-                    </div>
-                </div>
-                <div class="reg-card reg-card-wide">
-                    <span class="reg-icon">🐟</span>
-                    <div class="reg-text">
-                        <h3>Риболов на пъстърва</h3>
-                        <p>Такса: <strong>25 €</strong></p>
-                        <p>До <strong>2 въдици</strong> на рибар.</p>
-                        <p>До <strong>15 пъстърви</strong> на рибар.</p>
-                    </div>
+
+                <div class="dn-grid">
+                    <article class="dn-card dn-day reveal from-left" data-session="day">
+                        <span class="dn-sun" aria-hidden="true"></span>
+                        <span class="dn-now"><span class="live-dot" aria-hidden="true"></span>Сега</span>
+                        <h3><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg>Дневен риболов</h3>
+                        <p class="dn-time">07:00 – 18:30</p>
+                    </article>
+                    <span class="dn-days"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Понеделник – Неделя</span>
+                    <article class="dn-card dn-night reveal from-right" data-session="night">
+                        <span class="dn-moon" aria-hidden="true"></span>
+                        <span class="dn-now"><span class="live-dot" aria-hidden="true"></span>Сега</span>
+                        <h3><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg>Нощен риболов</h3>
+                        <p class="dn-time">19:00 – 06:30</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="features animate-on-scroll">
-            <div class="feature-card">
-                <div class="icon">📞</div>
-                <h3>Контакти</h3>
-                <p>Свържете се с нас за повече информация</p>
-                <a href="contacts.html">Виж повече</a>
-            </div>
-            <div class="feature-card">
-                <div class="icon">📍</div>
-                <h3>Местоположение</h3>
-                <p>Намерете ни лесно с интерактивна карта</p>
-                <a href="location.html">Виж повече</a>
+        <section class="section section--foam about" id="za-nas">
+            <div class="container about-grid">
+                <div class="about-media reveal from-left">
+                    <div class="about-photo">
+                        <img src="images/lake-bg-v2.jpg" alt="Въдица над спокойната вода на Комитовия гьол, с планина на хоризонта" width="960" height="960" loading="lazy">
+                    </div>
+                    <span class="about-chip"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>с. Стрелци</span>
+                    <div class="spin-badge" aria-hidden="true">
+                        <svg class="ring" viewBox="0 0 100 100">
+                            <defs><path id="ring-path" d="M50 50m-37 0a37 37 0 1 1 74 0a37 37 0 1 1-74 0"/></defs>
+                            <text><textPath href="#ring-path" textLength="230" lengthAdjust="spacing">СПОРТЕН РИБОЛОВ • КОМИТОВИЯ ГЬОЛ • </textPath></text>
+                        </svg>
+                        <span class="spin-center"><svg class="ico"><use href="#i-fish"/></svg></span>
+                    </div>
+                </div>
+
+                <div class="about-text reveal from-right">
+                    <span class="eyebrow">За нас</span>
+                    <h2 class="section-title">Тишина, природа и <span class="mark">хубав улов</span></h2>
+                    <p>Спортен Риболов Комитовия Гьол е перфектното място за любителите на риболова. Предлагаме отлични условия за риболов в красива природна обстановка.</p>
+                    <ul class="feature-list">
+                        <li><span class="fi fi--orange"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>Шаран и пъстърва</li>
+                        <li><span class="fi fi--violet"><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg></span>Дневен и нощен режим</li>
+                        <li><span class="fi fi--blue"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg></span>Отворено всеки ден</li>
+                        <li><span class="fi fi--green"><svg class="ico" aria-hidden="true"><use href="#i-mountain"/></svg></span>Красива природа</li>
+                    </ul>
+                    <a class="btn btn-dark btn-lg" href="location.html">Как да стигнете<svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                </div>
             </div>
         </section>
 
-        <section class="about animate-on-scroll">
-            <h2>За нас</h2>
-            <p>Спортен Риболов Комитовия Гьол е перфектното място за любителите на риболова. 
-            Предлагаме отлични условия за риболов в красива природна обстановка.</p>
+        <section class="cta">
+            <svg class="cta-fish cta-fish--1" aria-hidden="true"><use href="#i-fish"/></svg>
+            <svg class="cta-fish cta-fish--2" aria-hidden="true"><use href="#i-fish"/></svg>
+            <div class="container reveal zoom">
+                <span class="cta-script">Очакваме ви на брега!</span>
+                <h2>Готови за следващия улов?</h2>
+                <p>Обадете се за повече информация — работим всеки ден, с дневен и нощен риболов.</p>
+                <div class="cta-actions">
+                    <a class="btn btn-primary btn-lg" href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>0878 72 97 09</a>
+                    <a class="btn btn-outline-white btn-lg" href="location.html"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Упътване</a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
+    <footer class="site-footer">
+        <svg class="footer-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40c240 40 480 40 720 10s480-40 720 0v30H0Z"/></svg>
+        <div class="container footer-grid">
             <div class="footer-brand">
-                <h3>🎣 Комитовия Гьол</h3>
+                <a class="logo" href="index.html" aria-label="Комитовия Гьол — начало">
+                    <span class="logo-mark"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>
+                    <span class="logo-text">
+                        <span class="logo-name">Комитовия Гьол</span>
+                        <span class="logo-tag">Спортен риболов</span>
+                    </span>
+                </a>
                 <p>Вашето любимо място за риболов и отдих сред природата в с. Стрелци, област Пловдив.</p>
             </div>
-            <div class="footer-links">
-                <h4>Бързи връзки</h4>
+            <div class="footer-col">
+                <h2 class="footer-title">Навигация</h2>
                 <ul>
                     <li><a href="index.html">Начало</a></li>
+                    <li><a href="#reglament">Цени и регламент</a></li>
                     <li><a href="contacts.html">Контакти</a></li>
                     <li><a href="location.html">Местоположение</a></li>
                 </ul>
             </div>
-            <div class="footer-contact">
-                <h4>Контакти</h4>
+            <div class="footer-col">
+                <h2 class="footer-title">Работно време</h2>
                 <ul>
-                    <li><a href="tel:0878729709">📞 0878 72 97 09</a></li>
-                    <li><a href="mailto:komitoviqgyol@gmail.com">✉️ komitoviqgyol@gmail.com</a></li>
-                    <li>📍 с. Стрелци, Област Пловдив</li>
+                    <li>Понеделник – Неделя</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg>Дневен: 07:00 – 18:30</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg>Нощен: 19:00 – 06:30</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2 class="footer-title">Контакти</h2>
+                <ul>
+                    <li><a href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>0878 72 97 09</a></li>
+                    <li><a href="mailto:komitoviqgyol@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>komitoviqgyol@gmail.com</a></li>
+                    <li><a href="location.html"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>с. Стрелци, Област Пловдив</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Спортен Риболов Комитовия Гьол. Всички права запазени.</p>
+        <div class="container footer-bottom">
+            <p>&copy; <span data-year>2026</span> Спортен Риболов Комитовия Гьол. Всички права запазени.</p>
+            <a class="to-top" href="#">Към началото<svg class="ico" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
         </div>
     </footer>
 

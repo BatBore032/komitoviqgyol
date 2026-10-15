@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <meta name="description" content="Как да намерите Спортен Риболов Комитовия Гьол — адрес, GPS координати и интерактивна карта.">
     <title>Местоположение — Спортен Риболов Комитовия Гьол</title>
+    <meta name="theme-color" content="#0a2540">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="bg_BG">
+    <meta property="og:site_name" content="Спортен Риболов Комитовия Гьол">
+    <meta property="og:url" content="https://komitoviqgyol.vercel.app/location.html">
     <meta property="og:title" content="Местоположение — Спортен Риболов Комитовия Гьол">
     <meta property="og:description" content="Адрес, GPS координати и интерактивна карта до Спортен Риболов Комитовия Гьол.">
-    <meta property="og:image" content="images/lake-bg-v2.jpg">
+    <meta property="og:image" content="https://komitoviqgyol.vercel.app/images/lake-bg-v2.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://komitoviqgyol.vercel.app/location.html">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A3%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap">
     <link rel="stylesheet" href="styles.css">
     <script type="application/ld+json">
     {
@@ -22,7 +30,7 @@
         "url": "https://komitoviqgyol.vercel.app/location.html",
         "telephone": "+359878729709",
         "email": "komitoviqgyol@gmail.com",
-        "priceRange": "20–25 €",
+        "priceRange": "25 €",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "с. Стрелци",
@@ -48,82 +56,168 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>🎣 Комитовия Гьол</h1>
-            </div>
-            <button class="hamburger" aria-label="Меню" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="i-fish" viewBox="0 0 24 24"><path d="M22 12c-2.2 3.6-5.4 5.5-9 5.5-2.6 0-4.8-1-6.6-2.8L3 17.5v-11l3.4 2.8C8.2 7.5 10.4 6.5 13 6.5c3.6 0 6.8 1.9 9 5.5Z"/><path d="M17.5 11h.01"/><path d="M11 9.5c.7 1.6.7 3.4 0 5"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+        <symbol id="i-nav" viewBox="0 0 24 24"><path d="m3 11 19-9-9 19-2-8-8-2z"/></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Към съдържанието</a>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Основна навигация">
+            <a class="logo" href="index.html" aria-label="Комитовия Гьол — начало">
+                <span class="logo-mark"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>
+                <span class="logo-text">
+                    <span class="logo-name">Комитовия Гьол</span>
+                    <span class="logo-tag">Спортен риболов</span>
+                </span>
+            </a>
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="index.html">Начало</a></li>
+                <li><a href="index.html#reglament">Цени</a></li>
                 <li><a href="contacts.html">Контакти</a></li>
                 <li><a href="location.html" class="active" aria-current="page">Местоположение</a></li>
             </ul>
+            <div class="nav-actions">
+                <a class="btn btn-primary nav-cta" href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>0878 72 97 09</a>
+                <a class="nav-call" href="tel:+359878729709" aria-label="Обадете се на 0878 72 97 09"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></a>
+                <button class="hamburger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section class="page-header">
-            <h2>Как да ни намерите</h2>
-            <p>Лесно и достъпно място</p>
+    <main id="main">
+        <section class="page-hero">
+            <div class="page-hero-media">
+                <img src="images/lake-bg-v2.jpg" alt="" width="960" height="960">
+            </div>
+            <span class="blob blob--a" aria-hidden="true"></span>
+            <span class="blob blob--b" aria-hidden="true"></span>
+            <div class="container">
+                <ol class="breadcrumbs">
+                    <li><a href="index.html">Начало</a></li>
+                    <li aria-current="page">Местоположение</li>
+                </ol>
+                <span class="kicker">Пътят до брега</span>
+                <h1>Как да ни намерите</h1>
+                <p>Лесно и достъпно място в с. Стрелци, област Пловдив.</p>
+            </div>
+            <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 64C180 110 360 120 540 90S900 10 1080 20s270 50 360 60v40H0Z"/></svg>
         </section>
 
-        <section class="location-content animate-on-scroll">
-            <div class="location-info">
-                <h3>Адрес</h3>
-                <p>с. Стрелци, Област Пловдив</p>
+        <section class="section page-body">
+            <div class="container overlap">
+                <div class="loc-grid">
+                    <div class="loc-card reveal from-left">
+                        <div>
+                            <span class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Адрес</span>
+                            <h2>с. Стрелци, Област Пловдив</h2>
+                        </div>
 
-                <div class="map-coordinates">
-                    <h3>GPS координати</h3>
-                    <a href="https://www.google.com/maps/search/42.392526,+24.905720?entry=tts&g_ep=EgoyMDI1MTAwOC4wIPu8ASoASAFQAw%3D%3D&skid=9263fef4-592e-4da6-ac71-19406bfc4f30" target="_blank" rel="noopener noreferrer" class="btn">
-                        📍 Отвори в Google Maps
-                    </a>
+                        <div class="coords">
+                            <div>
+                                <span class="coords-label">GPS координати</span>
+                                <code>42.392526, 24.905720</code>
+                            </div>
+                            <button class="copy-btn" type="button" data-copy="42.392526, 24.905720">
+                                <svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span data-copy-label>Копирай</span>
+                            </button>
+                        </div>
+
+                        <div class="loc-actions">
+                            <a class="btn btn-primary btn-lg" href="https://www.google.com/maps/dir/?api=1&amp;destination=42.392526,24.905720" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Навигация с Google Maps</a>
+                            <a class="btn btn-waze btn-lg" href="https://waze.com/ul?ll=42.392526,24.905720&amp;navigate=yes" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg>Отвори в Waze</a>
+                        </div>
+
+                        <div class="loc-help">
+                            <span class="rule-icon"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+                            <span>Затруднявате се с пътя? Обадете се на <a href="tel:+359878729709">0878 72 97 09</a></span>
+                        </div>
+                    </div>
+
+                    <div class="map-frame reveal from-right">
+                        <span class="map-badge"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Комитовия Гьол</span>
+                        <iframe
+                            title="Карта до Спортен Риболов Комитовия Гьол"
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2946.6535660852933!2d24.90572!3d42.392526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDLCsDIzJzMzLjEiTiAyNMKwNTQnMjAuNiJF!5e0!3m2!1sen!2sbg!4v1766098697443!5m2!1sen!2sbg"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2946.6535660852933!2d24.90572!3d42.392526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDLCsDIzJzMzLjEiTiAyNMKwNTQnMjAuNiJF!5e0!3m2!1sen!2sbg!4v1766098697443!5m2!1sen!2sbg" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <section class="cta">
+            <svg class="cta-fish cta-fish--1" aria-hidden="true"><use href="#i-fish"/></svg>
+            <svg class="cta-fish cta-fish--2" aria-hidden="true"><use href="#i-fish"/></svg>
+            <div class="container reveal zoom">
+                <span class="cta-script">Ще се видим скоро!</span>
+                <h2>Имате въпроси?</h2>
+                <p>Обадете се за повече информация — работим всеки ден, с дневен и нощен риболов.</p>
+                <div class="cta-actions">
+                    <a class="btn btn-primary btn-lg" href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>0878 72 97 09</a>
+                    <a class="btn btn-outline-white btn-lg" href="index.html#reglament">Цени и регламент</a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
+    <footer class="site-footer">
+        <svg class="footer-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40c240 40 480 40 720 10s480-40 720 0v30H0Z"/></svg>
+        <div class="container footer-grid">
             <div class="footer-brand">
-                <h3>🎣 Комитовия Гьол</h3>
+                <a class="logo" href="index.html" aria-label="Комитовия Гьол — начало">
+                    <span class="logo-mark"><svg class="ico" aria-hidden="true"><use href="#i-fish"/></svg></span>
+                    <span class="logo-text">
+                        <span class="logo-name">Комитовия Гьол</span>
+                        <span class="logo-tag">Спортен риболов</span>
+                    </span>
+                </a>
                 <p>Вашето любимо място за риболов и отдих сред природата в с. Стрелци, област Пловдив.</p>
             </div>
-            <div class="footer-links">
-                <h4>Бързи връзки</h4>
+            <div class="footer-col">
+                <h2 class="footer-title">Навигация</h2>
                 <ul>
                     <li><a href="index.html">Начало</a></li>
+                    <li><a href="index.html#reglament">Цени и регламент</a></li>
                     <li><a href="contacts.html">Контакти</a></li>
                     <li><a href="location.html">Местоположение</a></li>
                 </ul>
             </div>
-            <div class="footer-contact">
-                <h4>Контакти</h4>
+            <div class="footer-col">
+                <h2 class="footer-title">Работно време</h2>
                 <ul>
-                    <li><a href="tel:0878729709">📞 0878 72 97 09</a></li>
-                    <li><a href="mailto:komitoviqgyol@gmail.com">✉️ komitoviqgyol@gmail.com</a></li>
-                    <li>📍 с. Стрелци, Област Пловдив</li>
+                    <li>Понеделник – Неделя</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg>Дневен: 07:00 – 18:30</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg>Нощен: 19:00 – 06:30</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2 class="footer-title">Контакти</h2>
+                <ul>
+                    <li><a href="tel:+359878729709"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>0878 72 97 09</a></li>
+                    <li><a href="mailto:komitoviqgyol@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>komitoviqgyol@gmail.com</a></li>
+                    <li><a href="location.html"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>с. Стрелци, Област Пловдив</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Спортен Риболов Комитовия Гьол. Всички права запазени.</p>
+        <div class="container footer-bottom">
+            <p>&copy; <span data-year>2026</span> Спортен Риболов Комитовия Гьол. Всички права запазени.</p>
+            <a class="to-top" href="#">Към началото<svg class="ico" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
         </div>
     </footer>
 

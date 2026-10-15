@@ -1,72 +1,149 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Hamburger menu toggle
+    const header = document.querySelector('.site-header');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+
+    // Hamburger menu toggle
+    function setMenu(open) {
+        hamburger.classList.toggle('active', open);
+        navLinks.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+    }
+
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
-            const isOpen = hamburger.classList.toggle('active');
-            navLinks.classList.toggle('open');
-            hamburger.setAttribute('aria-expanded', isOpen);
+            setMenu(!navLinks.classList.contains('open'));
         });
-        // Close menu when a link is clicked
+        // Close menu when a link is clicked, on Escape or on outside click
         navLinks.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('open');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
+            link.addEventListener('click', function() { setMenu(false); });
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') setMenu(false);
+        });
+        document.addEventListener('click', function(e) {
+            if (header && !header.contains(e.target)) setMenu(false);
         });
     }
 
-    // Header scroll effect
-    const header = document.querySelector('header');
+    // Header background after scrolling
     if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }, { passive: true });
+        const onScroll = function() {
+            header.classList.toggle('scrolled', window.scrollY > 40);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
     }
 
-    // Scroll animations (Intersection Observer)
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    if (animatedElements.length > 0) {
+    // Reveal elements when they enter the viewport
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('is-visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-        animatedElements.forEach(function(el) {
-            observer.observe(el);
+        revealEls.forEach(function(el) { observer.observe(el); });
+    } else {
+        revealEls.forEach(function(el) { el.classList.add('is-visible'); });
+    }
+
+    // Live status: day / night session by Bulgarian time
+    function sofiaMinutes() {
+        try {
+            const parts = new Intl.DateTimeFormat('en-GB', {
+                timeZone: 'Europe/Sofia',
+                hour: '2-digit',
+                minute: '2-digit',
+                hourCycle: 'h23'
+            }).formatToParts(new Date());
+            const get = function(type) {
+                return Number(parts.find(function(p) { return p.type === type; }).value);
+            };
+            return (get('hour') % 24) * 60 + get('minute');
+        } catch (e) {
+            const now = new Date();
+            return now.getHours() * 60 + now.getMinutes();
+        }
+    }
+
+    function currentSession(min) {
+        if (min >= 7 * 60 && min < 18 * 60 + 30) {
+            return { id: 'day', text: 'Сега: дневен риболов · до 18:30 ч.' };
+        }
+        if (min >= 19 * 60 || min < 6 * 60 + 30) {
+            return { id: 'night', text: 'Сега: нощен риболов · до 06:30 ч.' };
+        }
+        if (min >= 18 * 60 + 30) {
+            return { id: 'break', text: 'Нощният риболов започва в 19:00 ч.' };
+        }
+        return { id: 'break', text: 'Дневният риболов започва в 07:00 ч.' };
+    }
+
+    function updateStatus() {
+        const session = currentSession(sofiaMinutes());
+        document.querySelectorAll('[data-live-status]').forEach(function(el) {
+            el.dataset.state = session.id;
+            const text = el.querySelector('[data-live-text]');
+            if (text && text.textContent !== session.text) text.textContent = session.text;
+        });
+        document.querySelectorAll('[data-session]').forEach(function(el) {
+            el.classList.toggle('is-now', el.dataset.session === session.id);
         });
     }
 
-    // Stagger animation for cards inside animated sections
-    const staggerObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                const cards = entry.target.querySelectorAll('.reg-card, .feature-card, .contact-card');
-                cards.forEach(function(card, index) {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(function() {
-                        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-                staggerObserver.unobserve(entry.target);
+    if (document.querySelector('[data-live-status], [data-session]')) {
+        updateStatus();
+        setInterval(updateStatus, 60000);
+    }
+
+    // Copy GPS coordinates
+    document.querySelectorAll('[data-copy]').forEach(function(btn) {
+        const label = btn.querySelector('[data-copy-label]');
+        const original = label ? label.textContent : '';
+
+        btn.addEventListener('click', async function() {
+            const value = btn.dataset.copy;
+            try {
+                await navigator.clipboard.writeText(value);
+            } catch (e) {
+                const ta = document.createElement('textarea');
+                ta.value = value;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (err) { /* ignore */ }
+                ta.remove();
+            }
+            btn.classList.add('copied');
+            if (label) label.textContent = 'Копирано!';
+            setTimeout(function() {
+                btn.classList.remove('copied');
+                if (label) label.textContent = original;
+            }, 2000);
+        });
+    });
+
+    // Open the Tawk.to live chat
+    document.querySelectorAll('[data-open-chat]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const api = window.Tawk_API;
+            if (api && typeof api.maximize === 'function') {
+                api.maximize();
+            } else {
+                window.location.href = 'mailto:komitoviqgyol@gmail.com';
             }
         });
-    }, { threshold: 0.1 });
+    });
 
-    animatedElements.forEach(function(el) {
-        staggerObserver.observe(el);
+    // Current year in the footer
+    document.querySelectorAll('[data-year]').forEach(function(el) {
+        el.textContent = new Date().getFullYear();
     });
 });
