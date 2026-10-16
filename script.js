@@ -71,17 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // \u00a0 keeps "ч." on the same line as the time
     function currentSession(min) {
         if (min >= 7 * 60 && min < 18 * 60 + 30) {
-            return { id: 'day', text: 'Сега: дневен риболов · до 18:30 ч.' };
+            return { id: 'day', text: 'Сега: дневен риболов · до 18:30\u00a0ч.' };
         }
         if (min >= 19 * 60 || min < 6 * 60 + 30) {
-            return { id: 'night', text: 'Сега: нощен риболов · до 06:30 ч.' };
+            return { id: 'night', text: 'Сега: нощен риболов · до 06:30\u00a0ч.' };
         }
         if (min >= 18 * 60 + 30) {
-            return { id: 'break', text: 'Нощният риболов започва в 19:00 ч.' };
+            return { id: 'break', text: 'Нощният риболов започва в 19:00\u00a0ч.' };
         }
-        return { id: 'break', text: 'Дневният риболов започва в 07:00 ч.' };
+        return { id: 'break', text: 'Дневният риболов започва в 07:00\u00a0ч.' };
     }
 
     function updateStatus() {

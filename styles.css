@@ -121,6 +121,8 @@ h1, h2, h3, h4 {
     overflow: hidden;
 }
 
+.nowrap { white-space: nowrap; }
+
 .ico {
     display: inline-block;
     width: 1.25em;
@@ -305,6 +307,9 @@ h1, h2, h3, h4 {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+    /* По-голяма зона за докосване, без да мести текста */
+    padding-block: 0.5rem;
+    margin-block: -0.5rem;
     color: var(--lake);
     font-weight: 700;
     text-decoration: none;
@@ -597,6 +602,9 @@ html:not(.js) .hamburger span { background: var(--ink); }
     background: var(--sun);
     animation-name: pulse-sun;
 }
+
+/* Ако статусът не се побере на един ред, двата реда са равни */
+[data-live-text] { text-wrap: balance; }
 
 .hero-title {
     color: var(--white);
@@ -1100,6 +1108,12 @@ html:not(.js) .hamburger span { background: var(--ink); }
     line-height: 1.5;
 }
 
+/* Дълга дума се пренася в картата, вместо да я избутва извън екрана */
+.rule > div {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
 /* ===== Правила за спортен риболов ===== */
 .regs {
     overflow: hidden;
@@ -1357,8 +1371,8 @@ html:not(.js) .hamburger span { background: var(--ink); }
     align-items: center;
     gap: 0.6rem;
     color: inherit;
-    font-size: clamp(1.1rem, 2.6vw, 1.7rem);
-    font-size: clamp(1.1rem, 6cqi, 1.7rem);
+    font-size: clamp(1rem, 2.6vw, 1.7rem);
+    font-size: clamp(1rem, 6cqi, 1.7rem);
 }
 
 .dn-time {
@@ -1831,6 +1845,10 @@ html:not(.js) .hamburger span { background: var(--ink); }
 }
 
 .breadcrumbs a {
+    /* По-голяма зона за докосване, без да мести текста */
+    display: inline-block;
+    padding: 0.75rem 0.5rem;
+    margin: -0.75rem -0.5rem;
     color: var(--white);
     text-decoration: none;
 }
@@ -1956,17 +1974,18 @@ button.c-card:hover {
     color: var(--muted);
 }
 
+/* Обикновен текст, а не flex: при пренасяне стрелката остава до последната дума */
 .c-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
     margin-top: auto;
     padding-top: 1rem;
     color: var(--lake);
     font-weight: 800;
 }
 
-.c-more .ico { transition: transform 0.3s var(--ease); }
+.c-more .ico {
+    margin-left: 0.4rem;
+    transition: transform 0.3s var(--ease);
+}
 .c-card:hover .c-more .ico { transform: translateX(4px); }
 
 .c-card--phone {
@@ -2154,6 +2173,8 @@ button.c-card:hover {
 }
 
 .loc-help a {
+    /* По-голяма зона за докосване, без да мести текста */
+    padding-block: 0.65rem;
     font-weight: 800;
     text-decoration: none;
     white-space: nowrap;
@@ -2414,9 +2435,10 @@ button.c-card:hover {
 
 /* ===== Малък таблет / голям телефон ===== */
 @media (max-width: 760px) {
+    /* minmax(0, …): колоната не се разтяга по-широко от екрана */
     .tickets,
     .rules,
-    .dn-grid { grid-template-columns: 1fr; }
+    .dn-grid { grid-template-columns: minmax(0, 1fr); }
 
     .dn-card { min-height: 250px; }
 
@@ -2428,6 +2450,10 @@ button.c-card:hover {
         height: 150px;
         margin-top: -75px;
     }
+
+    /* По-стръмен наклон, за да се кръстосват лентите и на тесен екран */
+    .ribbon--front { transform: translateY(-50%) rotate(-6deg); }
+    .ribbon--back { transform: translateY(-50%) rotate(5deg); }
 }
 
 /* ===== Телефон ===== */
@@ -2517,10 +2543,22 @@ button.c-card:hover {
 
     .contact-grid { grid-template-columns: 1fr; }
 
+    .c-card { padding: 1.6rem; }
+    .c-value { font-size: 1.2rem; }
+    .c-value--sm { font-size: 1.08rem; }
+
     .c-card--phone {
         grid-column: auto;
         min-height: 240px;
     }
+
+    .copy-btn {
+        min-height: 44px;
+        padding-inline: 1.1rem;
+    }
+
+    /* „Google Maps“ и „Waze“ се побират на един ред */
+    .btn-long { display: none; }
 
     .map-frame,
     .map-frame iframe { min-height: 340px; }
@@ -2542,6 +2580,13 @@ button.c-card:hover {
         gap: 2rem;
     }
 
+    /* Връзките във футъра са поне 44px високи — удобни за пръст */
+    .footer-col ul { gap: 0; }
+
+    .footer-col li,
+    .footer-col a,
+    .to-top { min-height: 44px; }
+
     /* Място за бутона на чата долу вдясно */
     .footer-bottom {
         justify-content: center;
@@ -2561,6 +2606,58 @@ button.c-card:hover {
     }
 
     .pt-price { margin-left: auto; }
+
+    .live-badge {
+        gap: 0.5rem;
+        padding: 0.45rem 0.95rem 0.45rem 0.75rem;
+        font-size: 0.82rem;
+    }
+
+    /* И двете заглавия на билетите са на два реда */
+    .ticket-title { font-size: 1.3rem; }
+
+    /* „Заплаща се предварително“ се побира до иконата */
+    .rule { gap: 1rem; }
+
+    .rule .rule-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+    }
+
+    .rule .rule-icon .ico {
+        width: 24px;
+        height: 24px;
+    }
+
+    .rule h3 { font-size: 1rem; }
+
+    .c-value--sm { font-size: 1rem; }
+    .coords code { font-size: 0.92rem; }
+}
+
+/* ===== Сензорни екрани ===== */
+/* След докосване :hover „залепва“ — картите и бутоните не остават повдигнати */
+@media (hover: none) {
+    .btn:hover,
+    .copy-btn:hover,
+    .ticket:hover,
+    .ticket--trout:hover,
+    .rule:hover,
+    .dn-card:hover,
+    .feature-list li:hover,
+    a.c-card:hover,
+    button.c-card:hover,
+    .about-media:hover .about-photo img,
+    .link-arrow:hover .ico,
+    .c-card:hover .c-more .ico { transform: none; }
+
+    .btn:hover::after { transform: translateX(-120%); }
+    .logo:hover .logo-mark { transform: rotate(-8deg); }
+    .price-tag:hover { scale: none; }
+    .ticket:hover .ticket-icon { rotate: 10deg; }
+    .c-card:hover .c-icon { rotate: none; }
+    .regs-list li:hover::before { rotate: -6deg; }
 }
 
 /* ===== По-малко движение ===== */
