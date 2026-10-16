@@ -1100,6 +1100,171 @@ html:not(.js) .hamburger span { background: var(--ink); }
     line-height: 1.5;
 }
 
+/* ===== Правила за спортен риболов ===== */
+.regs {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "head list"
+        "foot list";
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+    border-radius: var(--radius-lg);
+    /* Тъмният фон е само на заглавието и долната част — под белия списък
+       прозира като тънък ръб по заоблените ъгли */
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.regs-head {
+    grid-area: head;
+    padding: clamp(1.6rem, 3.5vw, 2.4rem) clamp(1.6rem, 3.5vw, 2.4rem) 1.5rem;
+    background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+    color: var(--white);
+}
+
+.regs-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: var(--sun);
+    color: var(--ink);
+    rotate: -8deg;
+}
+
+.regs-icon .ico {
+    width: 30px;
+    height: 30px;
+}
+
+.regs-title {
+    margin-top: 1.4rem;
+    color: var(--white);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+}
+
+.regs-tag {
+    display: block;
+    margin-top: 0.6rem;
+    color: var(--sun);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.regs-list {
+    grid-area: list;
+    display: grid;
+    align-content: center;
+    padding: clamp(1.6rem, 3.5vw, 2.4rem);
+    list-style: none;
+    counter-reset: regs;
+    background: var(--white);
+    color: var(--text);
+}
+
+.regs-list li {
+    counter-increment: regs;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 1rem;
+    padding-block: 1.1rem;
+    border-top: 2px dashed var(--line);
+}
+
+.regs-list li:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.regs-list li:last-child { padding-bottom: 0; }
+
+/* Номер на правилото */
+.regs-list li::before {
+    content: counter(regs, decimal-leading-zero);
+    grid-row: span 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: var(--sun);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 800;
+    rotate: -6deg;
+    transition: rotate 0.4s var(--ease);
+}
+
+.regs-list li:hover::before { rotate: 0deg; }
+
+/* Забрани и санкции */
+.regs-list .regs-warn::before {
+    background: var(--berry);
+    color: var(--white);
+}
+
+.regs-name {
+    display: block;
+    color: var(--ink);
+    font-size: 1.06rem;
+    line-height: 1.4;
+}
+
+.regs-list p {
+    margin-top: 0.2rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+
+.regs-list p strong { color: var(--berry); }
+
+.regs-foot {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    grid-area: foot;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.9rem;
+    padding: 1.5rem clamp(1.6rem, 3.5vw, 2.4rem) clamp(1.6rem, 3.5vw, 2.4rem);
+    background: var(--ink);
+    color: var(--white);
+}
+
+/* Декоративен кръг в долния ъгъл */
+.regs-foot::before {
+    content: '';
+    position: absolute;
+    left: -80px;
+    bottom: -100px;
+    z-index: -1;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 30px solid rgba(255, 255, 255, 0.06);
+}
+
+.regs-foot p {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.regs-foot .regs-script {
+    color: var(--sun);
+    font-family: var(--font-script);
+    font-size: clamp(1.6rem, 2.6vw, 1.95rem);
+    line-height: 1.15;
+    rotate: -2deg;
+}
+
 /* ===== Ден / Нощ ===== */
 .dn-grid {
     position: relative;
@@ -2228,6 +2393,19 @@ button.c-card:hover {
     }
 
     .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    /* Правилата: заглавие, списък и благодарност едно под друго */
+    .regs {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: none;
+        grid-template-areas:
+            "head"
+            "list"
+            "foot";
+    }
+
+    .regs-head { padding-bottom: clamp(1.6rem, 3.5vw, 2.4rem); }
+    .regs-foot { padding-top: clamp(1.6rem, 3.5vw, 2.4rem); }
 
     /* На телефон елементите се появяват само отдолу нагоре, без странично изместване */
     .js .reveal.from-left:not(.is-visible),
