@@ -759,16 +759,6 @@ html:not(.js) .hamburger span { background: var(--ink); }
     height: 30px;
 }
 
-.pt-label {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    opacity: 0.88;
-}
-
 .pt-name {
     display: block;
     font-family: var(--font-display);
@@ -777,13 +767,36 @@ html:not(.js) .hamburger span { background: var(--ink); }
     line-height: 1.2;
 }
 
+/* Кратко пояснение под името на рибата */
+.pt-detail {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.3;
+    opacity: 0.92;
+}
+
 .pt-price {
     margin-left: auto;
     font-family: var(--font-display);
     font-size: 2rem;
     font-weight: 800;
     line-height: 1;
+    text-align: right;
     white-space: nowrap;
+}
+
+/* „Такса“ над сумата, както в билетите */
+.pt-price small {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
 }
 
 .hero-sticker {
@@ -826,37 +839,33 @@ html:not(.js) .hamburger span { background: var(--ink); }
     overflow-x: clip;
 }
 
+/* Две прави ленти една под друга — не се застъпват и двете се четат */
 .ribbons {
     position: relative;
     z-index: 3;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
     height: 210px;
     margin-top: -105px;
     margin-bottom: calc(clamp(2rem, 5vw, 3.5rem) - 30px);
 }
 
 .ribbon {
-    position: absolute;
-    top: 50%;
-    left: -5%;
-    width: 110%;
-    padding: 0.95rem 0;
+    padding: 0.8rem 0;
     overflow: hidden;
     box-shadow: 0 14px 30px rgba(10, 37, 64, 0.2);
 }
 
-.ribbon--front {
-    z-index: 2;
+.ribbon--sun {
     background: var(--sun);
     color: var(--ink);
-    transform: translateY(-50%) rotate(-2.5deg);
 }
 
-.ribbon--back {
-    z-index: 1;
+.ribbon--ink {
     background: var(--ink);
     color: var(--white);
-    transform: translateY(-50%) rotate(2deg);
 }
 
 .ribbon-track {
@@ -865,7 +874,7 @@ html:not(.js) .hamburger span { background: var(--ink); }
     animation: marquee 40s linear infinite;
 }
 
-.ribbon--back .ribbon-track {
+.ribbon--ink .ribbon-track {
     animation-duration: 55s;
     animation-direction: reverse;
 }
@@ -887,7 +896,7 @@ html:not(.js) .hamburger span { background: var(--ink); }
     color: var(--orange);
 }
 
-.ribbon--back .ribbon-track span::after { color: var(--aqua); }
+.ribbon--ink .ribbon-track span::after { color: var(--aqua); }
 
 /* ===== Ценови билети ===== */
 .tickets {
@@ -2460,13 +2469,12 @@ button.c-card:hover {
     .dn-days { transform: translate(-50%, -50%) rotate(-2deg); }
 
     .ribbons {
+        gap: 8px;
         height: 150px;
         margin-top: -75px;
     }
 
-    /* По-стръмен наклон, за да се кръстосват лентите и на тесен екран */
-    .ribbon--front { transform: translateY(-50%) rotate(-6deg); }
-    .ribbon--back { transform: translateY(-50%) rotate(5deg); }
+    .ribbon { padding: 0.7rem 0; }
 }
 
 /* ===== Телефон ===== */
@@ -2511,12 +2519,10 @@ button.c-card:hover {
         padding: 1rem;
     }
 
-    .pt-label {
-        white-space: normal;
-        letter-spacing: 0.06em;
+    .pt-price {
+        margin-left: 0;
+        text-align: left;
     }
-
-    .pt-price { margin-left: 0; }
 
     .pt-icon {
         width: 44px;
@@ -2618,7 +2624,10 @@ button.c-card:hover {
         align-items: center;
     }
 
-    .pt-price { margin-left: auto; }
+    .pt-price {
+        margin-left: auto;
+        text-align: right;
+    }
 
     .live-badge {
         gap: 0.5rem;
